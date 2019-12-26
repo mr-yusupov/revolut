@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.revolut.money.app.account.DefaultTransferHandlerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-26T07:52:16" hostname="DESKTOP-PNAEB3S" time="2.238">
+  <properties/>
+  <testcase name="shouldTransferMoneyWhenBothAccountsExist" classname="com.revolut.money.app.account.DefaultTransferHandlerTest" time="2.238"/>
+  <system-out><![CDATA[08:52:16.207 [Test worker] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+08:52:16.221 [Test worker] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+08:52:16.223 [Test worker] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+08:52:16.227 [Test worker] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+08:52:16.296 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.4.10.Final}
+08:52:16.298 [Test worker] DEBUG org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+08:52:16.457 [Test worker] DEBUG o.h.b.j.i.s.LocalXmlResourceResolver - Interpreting public/system identifier : [-//Hibernate/Hibernate Configuration DTD 3.0//EN] - [http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd]
+08:52:16.457 [Test worker] DEBUG o.h.b.j.i.s.LocalXmlResourceResolver - Recognized hibernate-configuration identifier; attempting to resolve on classpath under org/hibernate/
+08:52:16.461 [Test worker] DEBUG o.h.b.c.internal.JaxbCfgProcessor - cfg.xml document did not define namespaces; wrapping in custom event reader to introduce namespace information
+08:52:16.728 [Test worker] DEBUG org.hibernate.cfg.Configuration - Building session factory using internal StandardServiceRegistryBuilder
+08:52:16.736 [Test worker] DEBUG o.h.service.spi.ServiceBinding - Overriding existing service binding [org.hibernate.secure.spi.JaccService]
+08:52:16.737 [Test worker] DEBUG org.hibernate.cfg.Configuration - Building session factory using provided StandardServiceRegistry
+08:52:16.756 [Test worker] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+08:52:16.758 [Test worker] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+08:52:16.786 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+08:52:16.823 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@7e441914
+08:52:16.823 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@7e441914
+08:52:16.824 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@7e441914
+08:52:16.824 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@6988a844
+08:52:16.825 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@4fd8225e
+08:52:16.826 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@3d7452a2
+08:52:16.828 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@453b651
+08:52:16.828 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@453b651
+08:52:16.828 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@453b651
+08:52:16.829 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@70dddc65
+08:52:16.829 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@70dddc65
+08:52:16.830 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@70dddc65
+08:52:16.831 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@4c33d295
+08:52:16.831 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@4c33d295
+08:52:16.831 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@4c33d295
+08:52:16.832 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@4e2c02d8
+08:52:16.832 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@4e2c02d8
+08:52:16.833 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@4e2c02d8
+08:52:16.834 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@18795b9c
+08:52:16.834 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@18795b9c
+08:52:16.834 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@18795b9c
+08:52:16.835 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@216b1df1
+08:52:16.835 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@216b1df1
+08:52:16.836 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@216b1df1
+08:52:16.837 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@5283783
+08:52:16.837 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@5283783
+08:52:16.837 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@5283783
+08:52:16.838 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@6cef574c
+08:52:16.838 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@6cef574c
+08:52:16.840 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@69b557e4
+08:52:16.840 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@69b557e4
+08:52:16.841 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@3ce29848
+08:52:16.841 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@3ce29848
+08:52:16.842 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@42fb0da3
+08:52:16.842 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@54ca2d88
+08:52:16.844 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@10b4b66c
+08:52:16.844 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@10b4b66c
+08:52:16.845 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.DurationType@46bcf57c
+08:52:16.846 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.DurationType@46bcf57c
+08:52:16.859 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Instant -> org.hibernate.type.InstantType@5820e838
+08:52:16.859 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.InstantType@5820e838
+08:52:16.861 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@14835811
+08:52:16.861 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@14835811
+08:52:16.863 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.LocalDateType@47f4975c
+08:52:16.863 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@47f4975c
+08:52:16.864 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@f98e255
+08:52:16.864 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@f98e255
+08:52:16.866 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@419a5af1
+08:52:16.866 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@419a5af1
+08:52:16.867 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@648aba81
+08:52:16.867 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@648aba81
+08:52:16.870 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@676d0455
+08:52:16.871 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@676d0455
+08:52:16.872 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@1ca6060b
+08:52:16.873 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@1ca6060b
+08:52:16.874 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@37824c80
+08:52:16.874 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@37824c80
+08:52:16.877 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@2e02b489
+08:52:16.877 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@2e02b489
+08:52:16.877 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@2e02b489
+08:52:16.879 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@29f3c3db
+08:52:16.880 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@959126f
+08:52:16.881 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@959126f
+08:52:16.881 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@959126f
+08:52:16.882 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@1717c006
+08:52:16.883 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@1eba4d6c
+08:52:16.883 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@1eba4d6c
+08:52:16.884 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@724736b
+08:52:16.884 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@724736b
+08:52:16.885 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@6ebc9ff9
+08:52:16.885 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@6ebc9ff9
+08:52:16.887 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@214307cd
+08:52:16.887 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@214307cd
+08:52:16.888 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@35af9fac
+08:52:16.888 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@35af9fac
+08:52:16.889 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@6ca1c43a
+08:52:16.890 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@171598b3
+08:52:16.890 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@171598b3
+08:52:16.890 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@171598b3
+08:52:16.892 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@30c70765
+08:52:16.892 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@30c70765
+08:52:16.892 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@30c70765
+08:52:16.894 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.RowVersionType@5ed0f5ec
+08:52:16.894 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@76b39c4e
+08:52:16.895 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@50c655f9
+08:52:16.895 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@50c655f9
+08:52:16.896 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@50c655f9
+08:52:16.897 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@75cdda0e
+08:52:16.897 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@75cdda0e
+08:52:16.897 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@75cdda0e
+08:52:16.899 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@89985c7
+08:52:16.899 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.NTextType@2a9a73b5
+08:52:16.901 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@c8066fb
+08:52:16.901 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@c8066fb
+08:52:16.902 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@763ea76d
+08:52:16.903 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@5ab7e56a
+08:52:16.903 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@5ab7e56a
+08:52:16.905 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.NClobType@39b7d4a0
+08:52:16.906 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@39b7d4a0
+08:52:16.906 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@4ce4294e
+08:52:16.907 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@205be861
+08:52:16.908 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@622ccb31
+08:52:16.912 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@23d1e218
+08:52:16.912 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@23d1e218
+08:52:16.912 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@706e188a
+08:52:16.913 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@5c03e5bd
+08:52:16.913 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@5f86e847
+08:52:16.913 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@21688f77
+08:52:16.913 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@21427998
+08:52:16.913 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@622f5e00
+08:52:16.913 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@a0346d2
+08:52:16.913 [Test worker] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@6ff573d2
+08:52:16.947 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+08:52:16.948 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+08:52:16.948 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+08:52:16.949 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+08:52:16.949 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+08:52:16.950 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+08:52:16.951 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+08:52:16.952 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+08:52:16.953 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+08:52:16.954 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+08:52:16.955 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+08:52:16.955 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+08:52:16.955 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+08:52:16.956 [Test worker] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+08:52:16.962 [Test worker] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+08:52:16.966 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.h2.Driver] at URL [jdbc:h2:./test]
+08:52:16.967 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=sa, password=}
+08:52:16.967 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+08:52:16.971 [Test worker] DEBUG o.h.e.j.c.i.DriverManagerConnectionProviderImpl - Initializing Connection pool with 1 Connections
+08:52:16.971 [Test worker] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 10 (min=1)
+08:52:17.233 [Test worker] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - Database ->
+       name : H2
+    version : 1.4.200 (2019-10-14)
+      major : 1
+      minor : 4
+08:52:17.233 [Test worker] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - Driver ->
+       name : H2 JDBC Driver
+    version : 1.4.200 (2019-10-14)
+      major : 1
+      minor : 4
+08:52:17.233 [Test worker] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - JDBC version : 4.1
+08:52:17.247 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+08:52:17.306 [Test worker] DEBUG o.h.e.j.e.s.IdentifierHelperBuilder - JDBC driver metadata reported database stores quoted identifiers in neither upper, lower nor mixed case
+08:52:17.349 [Test worker] DEBUG o.h.boot.model.relational.Namespace - Created database namespace [logicalName=Name{catalog=null, schema=PUBLIC}, physicalName=Name{catalog=null, schema=PUBLIC}]
+08:52:17.352 [Test worker] DEBUG o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@6d0cbc62] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@235120c2]
+08:52:17.402 [Test worker] DEBUG o.h.a.c.u.StandardClassLoaderDelegateImpl - Unable to locate Class [com.revolut.money.domain.package-info] using TCCL, falling back to HCANN ClassLoader
+08:52:17.403 [Test worker] DEBUG org.hibernate.cfg.AnnotationBinder - HHH000194: Package not found or wo package-info.java: com.revolut.money.domain
+08:52:17.406 [Test worker] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.revolut.money.domain.account.Account
+08:52:17.428 [Test worker] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+08:52:17.434 [Test worker] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name Account
+08:52:17.441 [Test worker] DEBUG o.h.cfg.annotations.EntityBinder - Bind entity com.revolut.money.domain.account.Account on table Account
+08:52:17.464 [Test worker] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(PUBLIC.Account), mappingColumn=id, insertable=true, updatable=true, unique=false}
+08:52:17.467 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property id with lazy=false
+08:52:17.469 [Test worker] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.revolut.money.domain.account.Account:id]
+08:52:17.472 [Test worker] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for id
+08:52:17.474 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - Building property id
+08:52:17.477 [Test worker] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, assigned, , ...)
+08:52:17.478 [Test worker] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(PUBLIC.Account), mappingColumn=balance, insertable=true, updatable=true, unique=false}
+08:52:17.482 [Test worker] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(PUBLIC.Account), mappingColumn=amount, insertable=true, updatable=true, unique=false}
+08:52:17.483 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property amount with lazy=false
+08:52:17.483 [Test worker] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.revolut.money.domain.account.Account.balance:amount]
+08:52:17.483 [Test worker] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for amount
+08:52:17.483 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - Building property amount
+08:52:17.484 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - Building property balance
+08:52:17.487 [Test worker] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.revolut.money.domain.transaction.Transaction
+08:52:17.488 [Test worker] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+08:52:17.488 [Test worker] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name Transaction
+08:52:17.488 [Test worker] DEBUG o.h.cfg.annotations.EntityBinder - Bind entity com.revolut.money.domain.transaction.Transaction on table Transaction
+08:52:17.489 [Test worker] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(PUBLIC.Transaction), mappingColumn=id, insertable=true, updatable=true, unique=false}
+08:52:17.489 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property id with lazy=false
+08:52:17.489 [Test worker] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.revolut.money.domain.transaction.Transaction:id]
+08:52:17.489 [Test worker] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for id
+08:52:17.490 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - Building property id
+08:52:17.490 [Test worker] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, assigned, , ...)
+08:52:17.490 [Test worker] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(PUBLIC.Transaction), mappingColumn=completed, insertable=true, updatable=true, unique=false}
+08:52:17.490 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property completed with lazy=false
+08:52:17.490 [Test worker] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.revolut.money.domain.transaction.Transaction:completed]
+08:52:17.490 [Test worker] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for completed
+08:52:17.491 [Test worker] DEBUG o.h.cfg.annotations.PropertyBinder - Building property completed
+08:52:17.492 [Test worker] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for id
+08:52:17.492 [Test worker] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for amount
+08:52:17.493 [Test worker] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for id
+08:52:17.493 [Test worker] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for completed
+08:52:17.494 [Test worker] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [account]
+08:52:17.495 [Test worker] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [transaction]
+08:52:17.551 [Test worker] DEBUG o.h.internal.SessionFactoryImpl - Building session factory
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - SessionFactory name : null
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Automatic flush during beforeCompletion(): enabled
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Automatic session close at end of transaction: disabled
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Statistics: disabled
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Deleted entity synthetic identifier rollback: disabled
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Default entity-mode: pojo
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Allow initialization of lazy state outside session : disabled
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Using BatchFetchStyle : LEGACY
+08:52:17.552 [Test worker] DEBUG org.hibernate.cfg.Settings - Default batch fetch size: -1
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Maximum outer join fetch depth: null
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Default null ordering: NONE
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Order SQL updates by primary key: disabled
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Order SQL inserts for batching: disabled
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - multi-tenancy strategy : NONE
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - JTA Track by Thread: enabled
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Query language substitutions: {}
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Named query checking : enabled
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Second-level cache: disabled
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Second-level query cache: disabled
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Second-level query cache factory: null
+08:52:17.553 [Test worker] DEBUG org.hibernate.cfg.Settings - Second-level cache region prefix: null
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - Optimize second-level cache for minimal puts: disabled
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - Structured second-level cache entries: disabled
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - Second-level cache direct-reference entries: disabled
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - Automatic eviction of collection cache: disabled
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - JDBC batch size: 15
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - JDBC batch updates for versioned data: enabled
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - Scrollable result sets: enabled
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - Wrap result sets: disabled
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - JDBC3 getGeneratedKeys(): enabled
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - JDBC result set fetch size: null
+08:52:17.554 [Test worker] DEBUG org.hibernate.cfg.Settings - Connection release mode: AFTER_TRANSACTION
+08:52:17.555 [Test worker] DEBUG org.hibernate.cfg.Settings - Generate SQL with comments: disabled
+08:52:17.555 [Test worker] DEBUG org.hibernate.cfg.Settings - JPA compliance - query : disabled
+08:52:17.555 [Test worker] DEBUG org.hibernate.cfg.Settings - JPA compliance - closed-handling : disabled
+08:52:17.555 [Test worker] DEBUG org.hibernate.cfg.Settings - JPA compliance - lists : disabled
+08:52:17.555 [Test worker] DEBUG org.hibernate.cfg.Settings - JPA compliance - transactions : disabled
+08:52:17.638 [Test worker] DEBUG o.h.internal.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+08:52:17.639 [Test worker] DEBUG o.h.internal.SessionFactoryImpl - Instantiating session factory with properties: {sun.desktop=windows, awt.toolkit=sun.awt.windows.WToolkit, dialect=org.hibernate.dialect.H2Dialect, file.encoding.pkg=sun.io, java.specification.version=1.8, sun.cpu.isalist=amd64, sun.jnu.encoding=Cp1252, hibernate.dialect=org.hibernate.dialect.H2Dialect, org.gradle.test.worker=21, java.class.path=C:\Users\Yusupov\Documents\Intellij Projects\money-app\build\classes\java\test;C:\Users\Yusupov\Documents\Intellij Projects\money-app\build\resources\test;C:\Users\Yusupov\Documents\Intellij Projects\money-app\build\classes\java\main;C:\Users\Yusupov\Documents\Intellij Projects\money-app\build\resources\main;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.eclipse.jetty\jetty-servlet\9.4.25.v20191220\bee77d6a4f87dc90d5bc142cbd6cef470ec46aae\jetty-servlet-9.4.25.v20191220.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.eclipse.jetty\jetty-security\9.4.25.v20191220\593ff5b5dfd5bf973184329f5d1209b9a411ec12\jetty-security-9.4.25.v20191220.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.eclipse.jetty\jetty-server\9.4.25.v20191220\5b352c9f9135a1c20e4808e5cb1d84fbddfdc460\jetty-server-9.4.25.v20191220.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient\4.5.10\7ca2e4276f4ef95e4db725a8cd4a1d1e7585b9e5\httpclient-4.5.10.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jersey.containers\jersey-container-servlet-core\2.29.1\374a2d5702b46d0c14c6e1ecfa1486d5d76bc947\jersey-container-servlet-core-2.29.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jersey.media\jersey-media-json-binding\2.29.1\19691f1b7eb6852356a2396b1e0bb2ab17ffc03e\jersey-media-json-binding-2.29.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jersey.inject\jersey-hk2\2.29.1\54b316e9f91ac9de1e6900aeb63457505862a296\jersey-hk2-2.29.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\javax.servlet\javax.servlet-api\4.0.1\a27082684a2ff0bf397666c3943496c44541d1ca\javax.servlet-api-4.0.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-core\2.3.0.1\33277bae433ecd0fdebd53812eb084da443575b6\jaxb-core-2.3.0.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.hibernate\hibernate-core\5.4.10.Final\365690f87b040dc5d22cc24a4daff76d1cffef23\hibernate-core-5.4.10.Final.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-runtime\2.3.1\dd6dda9da676a54c5b36ca2806ff95ee017d8738\jaxb-runtime-2.3.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\javax.xml.bind\jaxb-api\2.3.1\8531ad5ac454cc2deb9d4d32c40c4d7451939b5d\jaxb-api-2.3.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.google.inject\guice\4.2.2\6dacbe18e5eaa7f6c9c36db33b42e7985e94ce77\guice-4.2.2.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.6\9180733b7df8542621dc12e21e87557e8c99b8cb\gson-2.8.6.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.projectlombok\lombok\1.18.10\625fc0055674dff70dbc76efa36d0f2c89b04a24\lombok-1.18.10.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\de.jkeylockmanager\jkeylockmanager\2.1.0\4cb000063a01a2b7bd05bc4be8ec201b45a3c3d3\jkeylockmanager-2.1.0.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.slf4j\jcl-over-slf4j\1.7.12\adef7a9e1263298255fdb5cb107ff171d07c82f3\jcl-over-slf4j-1.7.12.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\ch.qos.logback\logback-classic\1.1.3\d90276fff414f06cb375f2057f6778cd63c6082f\logback-classic-1.1.3.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.h2database\h2\1.4.200\f7533fe7cb8e99c87a43d325a77b4b678ad9031a\h2-1.4.200.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.eclipse.jetty\jetty-http\9.4.25.v20191220\c3aa7da362f1a492667ce754ba16b2535b793668\jetty-http-9.4.25.v20191220.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.eclipse.jetty\jetty-io\9.4.25.v20191220\3eb34b5481012701de0ea9dfaf2bdf1dbb947b16\jetty-io-9.4.25.v20191220.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.4.12\21ebaf6d532bc350ba95bd81938fa5f0e511c132\httpcore-4.4.12.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\commons-logging\commons-logging\1.2\4bfc12adfe4842bf07b657f0369c4cb522955686\commons-logging-1.2.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.11\3acb4705652e16236558f0f4f2192cc33c3bd189\commons-codec-1.11.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jersey.core\jersey-server\2.29.1\edeaa59abad953156a4ed83199780d66ce7998c0\jersey-server-2.29.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jersey.core\jersey-client\2.29.1\1635f245b7e9eecf8d3d753fba87f3b79aef1b34\jersey-client-2.29.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jersey.media\jersey-media-jaxb\2.29.1\53f22b94254ff781667b3313acbb3afebfd091b5\jersey-media-jaxb-2.29.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jersey.core\jersey-common\2.29.1\ea60b9ace56f1ae758c2eebbb48e8387d959102f\jersey-common-2.29.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.hk2\hk2-locator\2.6.1\9dedf9d2022e38ec0743ed44c1ac94ad6149acdd\hk2-locator-2.6.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.hk2\hk2-api\2.6.1\114bd7afb4a1bd9993527f52a08a252b5d2acac5\hk2-api-2.6.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.hk2\hk2-utils\2.6.1\396513aa96c1d5a10aa4f75c4dcbf259a698d62d\hk2-utils-2.6.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.hk2.external\jakarta.inject\2.6.1\8096ebf722902e75fbd4f532a751e514f02e1eb7\jakarta.inject-2.6.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\jakarta.ws.rs\jakarta.ws.rs-api\2.1.6\1dcb770bce80a490dff49729b99c7a60e9ecb122\jakarta.ws.rs-api-2.1.6.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish\jakarta.json\1.1.5\db0810e21a749c7ff934836c95d69c7c4e67b455\jakarta.json-1.1.5.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.eclipse\yasson\1.0.3\2d1cc45f56c76d3e3bb1222d44eca9afaa647e20\yasson-1.0.3.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\jakarta.json.bind\jakarta.json.bind-api\1.0.2\a0f7cf034442d1fd195ca78cf3d6633140d5928f\jakarta.json.bind-api-1.0.2.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\jakarta.json\jakarta.json-api\1.1.5\7d44a70a005bad9a6486758a7ad08ec8dae59c29\jakarta.json-api-1.1.5.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\txw2\2.3.1\a09d2c48d3285f206fafbffe0e50619284e92126\txw2-2.3.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.sun.istack\istack-commons-runtime\3.0.7\c197c86ceec7318b1284bffb49b54226ca774003\istack-commons-runtime-3.0.7.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\javax.activation\javax.activation-api\1.2.0\85262acf3ca9816f9537ca47d5adeabaead7cb16\javax.activation-api-1.2.0.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\aopalliance\aopalliance\1.0\235ba8b489512805ac13a8f9ea77a1ca5ebe3e8\aopalliance-1.0.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\25.1-android\bdaab946ca5ad20253502d873ba0c3313d141036\guava-25.1-android.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.hibernate.common\hibernate-commons-annotations\5.1.0.Final\700aeedc4a2089816621948f0379e17cbd17d5db\hibernate-commons-annotations-5.1.0.Final.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.jboss.logging\jboss-logging\3.3.2.Final\3789d00e859632e6c6206adc0c71625559e6e3b0\jboss-logging-3.3.2.Final.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\javax.persistence\javax.persistence-api\2.2\25665ac8c0b62f50e6488173233239120fc52c96\javax.persistence-api-2.2.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.javassist\javassist\3.24.0-GA\d7466fc2e3af7c023e95c510f06448ad29b225b3\javassist-3.24.0-GA.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy\1.10.2\7e575b4d8eb3041728fb7dac4fa09bf163c5ee9\byte-buddy-1.10.2.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\antlr\antlr\2.7.7\83cd2cd674a217ade95a4bb83a8a14f351f48bd0\antlr-2.7.7.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.jboss.spec.javax.transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\a8485cab9484dda36e9a8c319e76b5cc18797b58\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.jboss\jandex\2.1.1.Final\c89aa5564fea8b08b9b41f0bbcabb8fed0d89c0d\jandex-2.1.1.Final.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.fasterxml\classmate\1.5.1\3fe0bed568c62df5e89f4f174c101eab25345b6c\classmate-1.5.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.dom4j\dom4j\2.1.1\3dce5dbb3571aa820c677fadd8349bfa8f00c199\dom4j-2.1.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.12\8e20852d05222dc286bf1c71d78d0531e177c317\slf4j-api-1.7.12.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\ch.qos.logback\logback-core\1.1.3\e3c02049f2dbbc764681b40094ecf0dcbc99b157\logback-core-1.1.3.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.eclipse.jetty\jetty-util\9.4.25.v20191220\fd8b642cc16728f1c36ca6a64653cb1b26ec0232\jetty-util-9.4.25.v20191220.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\jakarta.annotation\jakarta.annotation-api\1.3.5\59eb84ee0d616332ff44aba065f3888cf002cd2d\jakarta.annotation-api-1.3.5.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.hk2\osgi-resource-locator\1.0.3\de3b21279df7e755e38275137539be5e2c80dd58\osgi-resource-locator-1.0.3.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\jakarta.validation\jakarta.validation-api\2.0.2\5eacc6522521f7eacb081f95cee1e231648461e7\jakarta.validation-api-2.0.2.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.glassfish.hk2.external\aopalliance-repackaged\2.6.1\b2eb0a83bcbb44cc5d25f8b18f23be116313a638\aopalliance-repackaged-2.6.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.2\25ea2e8b0c338a877313bd4672d3fe056ea78f0d\jsr305-3.0.2.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.checkerframework\checker-compat-qual\2.0.0\fc89b03860d11d6213d0154a62bcd1c2f69b9efa\checker-compat-qual-2.0.0.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.google.errorprone\error_prone_annotations\2.1.3\39b109f2cd352b2d71b52a3b5a1a9850e1dc304b\error_prone_annotations-2.1.3.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.google.j2objc\j2objc-annotations\1.1\ed28ded51a8b1c6b112568def5f4b455e6809019\j2objc-annotations-1.1.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.codehaus.mojo\animal-sniffer-annotations\1.14\775b7e22fb10026eed3f86e8dc556dfafe35f2d5\animal-sniffer-annotations-1.14.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\org.jvnet.staxex\stax-ex\1.8\8cc35f73da321c29973191f2cf143d29d26a1df7\stax-ex-1.8.jar;C:\Users\Yusupov\.gradle\caches\modules-2\files-2.1\com.sun.xml.fastinfoset\FastInfoset\1.2.15\bb7b7ec0379982b97c62cd17465cb6d9155f68e8\FastInfoset-1.2.15.jar, java.vm.vendor=Oracle Corporation, sun.arch.data.model=64, hbm2ddl.auto=create, user.variant=, java.vendor.url=http://java.oracle.com/, user.timezone=Europe/Prague, os.name=Windows 10, java.vm.specification.version=1.8, sun.java.launcher=SUN_STANDARD, user.country=US, sun.boot.library.path=C:\Program Files\Java\jdk1.8.0_211\jre\bin, sun.java.command=worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 21', sun.cpu.endian=little, user.home=C:\Users\Yusupov, user.language=en, java.specification.vendor=Oracle Corporation, hibernate.cache.provider_class=org.hibernate.cache.internal.NoCacheProvider, org.gradle.native=false, java.home=C:\Program Files\Java\jdk1.8.0_211\jre, file.separator=\, line.separator=
+, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment, cache.provider_class=org.hibernate.cache.internal.NoCacheProvider, sun.boot.class.path=C:\Program Files\Java\jdk1.8.0_211\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_211\jre\classes, hibernate.hbm2ddl.auto=create, user.script=, connection.password=, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=1.8.0_211-b12, user.name=Yusupov, path.separator=;, hibernate.connection.username=****, os.version=10.0, java.endorsed.dirs=C:\Program Files\Java\jdk1.8.0_211\jre\lib\endorsed, java.runtime.name=Java(TM) SE Runtime Environment, hibernate.connection.url=jdbc:h2:./test, connection.pool_size=10, file.encoding=windows-1252, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.show_sql=true, show_sql=true, hibernate.connection.driver_class=org.h2.Driver, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, java.io.tmpdir=C:\Users\Yusupov\AppData\Local\Temp\, java.version=1.8.0_211, user.dir=C:\Users\Yusupov\Documents\Intellij Projects\money-app, os.arch=amd64, connection.username=sa, java.vm.specification.name=Java Virtual Machine Specification, hibernate.default_schema=PUBLIC, hibernate.connection.password=****, java.awt.printerjob=sun.awt.windows.WPrinterJob, sun.os.patch.level=, connection.driver_class=org.h2.Driver, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.cfgxml.spi.LoadedConfig@7dbee0ab, java.library.path=C:\Program Files\Java\jdk1.8.0_211\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Dev\apache-maven-3.6.1-bin\bin;%FLINK\bin;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Users\Yusupov\AppData\Local\Microsoft\WindowsApps;;., java.vendor=Oracle Corporation, java.vm.info=mixed mode, java.vm.version=25.211-b12, hibernate.bytecode.use_reflection_optimizer=false, sun.io.unicode.encoding=UnicodeLittle, java.ext.dirs=C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext, hibernate.connection.pool_size=10, connection.url=jdbc:h2:./test, java.class.version=52.0}
+08:52:17.664 [Test worker] DEBUG o.h.c.b.TypeSafeActivator - Unable to acquire Bean Validation ValidatorFactory, skipping activation
+08:52:17.665 [Test worker] DEBUG o.h.secure.spi.JaccIntegrator - Skipping JACC integration as it was not enabled
+08:52:17.667 [Test worker] DEBUG o.h.internal.SessionFactoryImpl - Instantiated session factory
+08:52:17.667 [Test worker] DEBUG o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@6d0cbc62] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@7e6457b2]
+08:52:17.730 [Test worker] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.revolut.money.domain.transaction.Transaction] is safe
+08:52:17.730 [Test worker] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.revolut.money.domain.transaction.Transaction
+08:52:17.740 [Test worker] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.revolut.money.domain.transaction.Transaction] is safe
+08:52:17.740 [Test worker] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.revolut.money.domain.transaction.Transaction
+08:52:17.999 [Test worker] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.revolut.money.domain.account.Account] is safe
+08:52:17.999 [Test worker] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.revolut.money.domain.account.Account
+08:52:18.001 [Test worker] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.revolut.money.domain.account.Account] is safe
+08:52:18.001 [Test worker] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.revolut.money.domain.account.Account
+08:52:18.017 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: com.revolut.money.domain.transaction.Transaction
+08:52:18.017 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from PUBLIC.Transaction where id =?
+08:52:18.017 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select transactio_.id, transactio_.completed as complete2_1_ from PUBLIC.Transaction transactio_ where transactio_.id=?
+08:52:18.017 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into PUBLIC.Transaction (completed, id) values (?, ?)
+08:52:18.017 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update PUBLIC.Transaction set completed=? where id=?
+08:52:18.017 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from PUBLIC.Transaction where id=?
+08:52:18.041 [Test worker] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2161cf56]
+08:52:18.043 [Test worker] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : completed
+08:52:18.043 [Test worker] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+08:52:18.054 [Test worker] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+08:52:18.058 [Test worker] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.revolut.money.domain.transaction.Transaction)
+    - Returns
+       - EntityReturnImpl(entity=com.revolut.money.domain.transaction.Transaction, querySpaceUid=<gen:0>, path=com.revolut.money.domain.transaction.Transaction)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.revolut.money.domain.transaction.Transaction)
+          - SQL table alias mapping - transactio0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+08:52:18.060 [Test worker] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.revolut.money.domain.transaction.Transaction [NONE]: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.060 [Test worker] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@30dd9a71]
+08:52:18.060 [Test worker] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : completed
+08:52:18.060 [Test worker] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+08:52:18.060 [Test worker] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+08:52:18.061 [Test worker] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.revolut.money.domain.transaction.Transaction)
+    - Returns
+       - EntityReturnImpl(entity=com.revolut.money.domain.transaction.Transaction, querySpaceUid=<gen:0>, path=com.revolut.money.domain.transaction.Transaction)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.revolut.money.domain.transaction.Transaction)
+          - SQL table alias mapping - transactio0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+
+08:52:18.061 [Test worker] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.revolut.money.domain.transaction.Transaction [READ]: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.076 [Test worker] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity com.revolut.money.domain.transaction.Transaction: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.076 [Test worker] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity com.revolut.money.domain.transaction.Transaction: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.076 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: com.revolut.money.domain.account.Account
+08:52:18.076 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from PUBLIC.Account where id =?
+08:52:18.076 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select account_.id, account_.amount as amount2_0_ from PUBLIC.Account account_ where account_.id=?
+08:52:18.077 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into PUBLIC.Account (amount, id) values (?, ?)
+08:52:18.077 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update PUBLIC.Account set amount=? where id=?
+08:52:18.077 [Test worker] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from PUBLIC.Account where id=?
+08:52:18.077 [Test worker] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6fdc7069]
+08:52:18.077 [Test worker] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : balance
+08:52:18.079 [Test worker] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CompositeQuerySpaceImpl@3b7f309]
+08:52:18.083 [Test worker] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : balance.amount
+08:52:18.083 [Test worker] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+08:52:18.083 [Test worker] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+08:52:18.084 [Test worker] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.revolut.money.domain.account.Account)
+    - Returns
+       - EntityReturnImpl(entity=com.revolut.money.domain.account.Account, querySpaceUid=<gen:0>, path=com.revolut.money.domain.account.Account)
+          - CompositeAttributeFetchImpl(composite=com.revolut.money.domain.money.Money, querySpaceUid=<gen:1>, path=com.revolut.money.domain.account.Account.balance)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.revolut.money.domain.account.Account)
+          - SQL table alias mapping - account0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+          - JOIN (JoinDefinedByMetadata(balance)) : <gen:0> -> <gen:1>
+             - CompositeQuerySpaceImpl(uid=<gen:1>)
+                - SQL table alias mapping - account0_
+
+08:52:18.084 [Test worker] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.revolut.money.domain.account.Account [NONE]: select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+08:52:18.084 [Test worker] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@38022959]
+08:52:18.084 [Test worker] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : balance
+08:52:18.085 [Test worker] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CompositeQuerySpaceImpl@3a17eec6]
+08:52:18.085 [Test worker] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : balance.amount
+08:52:18.085 [Test worker] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+08:52:18.085 [Test worker] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+08:52:18.086 [Test worker] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.revolut.money.domain.account.Account)
+    - Returns
+       - EntityReturnImpl(entity=com.revolut.money.domain.account.Account, querySpaceUid=<gen:0>, path=com.revolut.money.domain.account.Account)
+          - CompositeAttributeFetchImpl(composite=com.revolut.money.domain.money.Money, querySpaceUid=<gen:1>, path=com.revolut.money.domain.account.Account.balance)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.revolut.money.domain.account.Account)
+          - SQL table alias mapping - account0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+          - JOIN (JoinDefinedByMetadata(balance)) : <gen:0> -> <gen:1>
+             - CompositeQuerySpaceImpl(uid=<gen:1>)
+                - SQL table alias mapping - account0_
+
+08:52:18.086 [Test worker] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.revolut.money.domain.account.Account [READ]: select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+08:52:18.086 [Test worker] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity com.revolut.money.domain.account.Account: select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+08:52:18.087 [Test worker] DEBUG org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity com.revolut.money.domain.account.Account: select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+08:52:18.125 [Test worker] DEBUG org.hibernate.SQL - drop table PUBLIC.Account if exists
+Hibernate: drop table PUBLIC.Account if exists
+08:52:18.127 [Test worker] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d2ebc61] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+08:52:18.131 [Test worker] DEBUG org.hibernate.SQL - drop table PUBLIC.Transaction if exists
+Hibernate: drop table PUBLIC.Transaction if exists
+08:52:18.135 [Test worker] DEBUG org.hibernate.SQL - create table PUBLIC.Account (id bigint not null, amount decimal(19,2), primary key (id))
+Hibernate: create table PUBLIC.Account (id bigint not null, amount decimal(19,2), primary key (id))
+08:52:18.135 [Test worker] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@33391ead] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+08:52:18.137 [Test worker] DEBUG org.hibernate.SQL - create table PUBLIC.Transaction (id varchar(255) not null, completed boolean not null, primary key (id))
+Hibernate: create table PUBLIC.Transaction (id varchar(255) not null, completed boolean not null, primary key (id))
+08:52:18.140 [Test worker] DEBUG o.h.e.t.j.p.i.JtaPlatformInitiator - No JtaPlatform was specified, checking resolver
+08:52:18.141 [Test worker] DEBUG o.h.e.t.j.p.i.JtaPlatformResolverInitiator - No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver]
+08:52:18.147 [Test worker] DEBUG o.h.e.t.j.p.i.StandardJtaPlatformResolver - Could not resolve JtaPlatform, using default [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08:52:18.148 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08:52:18.149 [Test worker] DEBUG o.h.query.spi.NamedQueryRepository - Checking 0 named HQL queries
+08:52:18.149 [Test worker] DEBUG o.h.query.spi.NamedQueryRepository - Checking 0 named SQL queries
+08:52:18.157 [Test worker] DEBUG o.h.internal.SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@16b0ff5e
+08:52:18.159 [Test worker] DEBUG o.h.internal.SessionFactoryRegistry - Registering SessionFactory: 47295882-24bf-49cf-b0f1-1d46d7985480 (<unnamed>)
+08:52:18.159 [Test worker] DEBUG o.h.internal.SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured
+08:52:18.219 [Test worker] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=false]
+08:52:18.225 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+08:52:18.225 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - begin
+08:52:18.230 [Test worker] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: -4297291734164413857, using strategy: org.hibernate.id.Assigned
+08:52:18.242 [Test worker] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: -3015114131655468846, using strategy: org.hibernate.id.Assigned
+08:52:18.242 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - committing
+08:52:18.243 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+08:52:18.244 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+08:52:18.248 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 2 insertions, 0 updates, 0 deletions to 2 objects
+08:52:18.248 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+08:52:18.249 [Test worker] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+08:52:18.250 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.account.Account{balance=component[amount]{amount=0}, id=-3015114131655468846}
+08:52:18.250 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.account.Account{balance=component[amount]{amount=10}, id=-4297291734164413857}
+08:52:18.254 [Test worker] DEBUG org.hibernate.SQL - insert into PUBLIC.Account (amount, id) values (?, ?)
+Hibernate: insert into PUBLIC.Account (amount, id) values (?, ?)
+08:52:18.259 [Test worker] DEBUG org.hibernate.SQL - insert into PUBLIC.Account (amount, id) values (?, ?)
+Hibernate: insert into PUBLIC.Account (amount, id) values (?, ?)
+08:52:18.262 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.262 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.263 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+08:52:18.263 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - begin
+08:52:18.263 [Test worker] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: ab24920e-02f2-43d2-9f81-f92cf445dc42, using strategy: org.hibernate.id.Assigned
+08:52:18.264 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - committing
+08:52:18.264 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+08:52:18.264 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+08:52:18.264 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+08:52:18.264 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+08:52:18.264 [Test worker] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+08:52:18.264 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.transaction.Transaction{id=ab24920e-02f2-43d2-9f81-f92cf445dc42, completed=false}
+08:52:18.264 [Test worker] DEBUG org.hibernate.SQL - insert into PUBLIC.Transaction (completed, id) values (?, ?)
+Hibernate: insert into PUBLIC.Transaction (completed, id) values (?, ?)
+08:52:18.267 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.267 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.277 [Test worker] DEBUG org.hibernate.SQL - select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+Hibernate: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.281 [Test worker] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+08:52:18.286 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving attributes for [com.revolut.money.domain.transaction.Transaction#ab24920e-02f2-43d2-9f81-f92cf445dc42]
+08:52:18.286 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Processing attribute `completed` : value = false
+08:52:18.286 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Attribute (`completed`)  - enhanced for lazy-loading? - false
+08:52:18.286 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [com.revolut.money.domain.transaction.Transaction#ab24920e-02f2-43d2-9f81-f92cf445dc42]
+08:52:18.286 [Test worker] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : com.revolut.money.domain.transaction.Transaction#ab24920e-02f2-43d2-9f81-f92cf445dc42
+08:52:18.286 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.287 [Test worker] DEBUG org.hibernate.SQL - select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+Hibernate: select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+08:52:18.288 [Test worker] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+08:52:18.288 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving attributes for [com.revolut.money.domain.account.Account#-4297291734164413857]
+08:52:18.288 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Processing attribute `balance` : value = [Ljava.lang.Object;@6d3deb8c
+08:52:18.288 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Attribute (`balance`)  - enhanced for lazy-loading? - false
+08:52:18.289 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [com.revolut.money.domain.account.Account#-4297291734164413857]
+08:52:18.289 [Test worker] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : com.revolut.money.domain.account.Account#-4297291734164413857
+08:52:18.289 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.289 [Test worker] DEBUG org.hibernate.SQL - select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+Hibernate: select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+08:52:18.289 [Test worker] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+08:52:18.290 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving attributes for [com.revolut.money.domain.account.Account#-3015114131655468846]
+08:52:18.290 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Processing attribute `balance` : value = [Ljava.lang.Object;@5aa8095e
+08:52:18.290 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Attribute (`balance`)  - enhanced for lazy-loading? - false
+08:52:18.290 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [com.revolut.money.domain.account.Account#-3015114131655468846]
+08:52:18.290 [Test worker] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : com.revolut.money.domain.account.Account#-3015114131655468846
+08:52:18.290 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.291 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+08:52:18.291 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - begin
+08:52:18.294 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - committing
+08:52:18.294 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+08:52:18.294 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+08:52:18.294 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 insertions, 3 updates, 0 deletions to 3 objects
+08:52:18.295 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+08:52:18.295 [Test worker] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+08:52:18.295 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.transaction.Transaction{id=ab24920e-02f2-43d2-9f81-f92cf445dc42, completed=true}
+08:52:18.295 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.account.Account{balance=component[amount]{amount=10.00}, id=-3015114131655468846}
+08:52:18.295 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.account.Account{balance=component[amount]{amount=0.00}, id=-4297291734164413857}
+08:52:18.295 [Test worker] DEBUG org.hibernate.SQL - update PUBLIC.Transaction set completed=? where id=?
+Hibernate: update PUBLIC.Transaction set completed=? where id=?
+08:52:18.298 [Test worker] DEBUG org.hibernate.SQL - update PUBLIC.Account set amount=? where id=?
+Hibernate: update PUBLIC.Account set amount=? where id=?
+08:52:18.298 [Test worker] DEBUG org.hibernate.SQL - update PUBLIC.Account set amount=? where id=?
+Hibernate: update PUBLIC.Account set amount=? where id=?
+08:52:18.299 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.299 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

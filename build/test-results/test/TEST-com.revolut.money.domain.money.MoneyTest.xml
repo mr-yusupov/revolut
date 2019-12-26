@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.revolut.money.domain.money.MoneyTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-12-26T07:52:18" hostname="DESKTOP-PNAEB3S" time="0.001">
+  <properties/>
+  <testcase name="shouldAddTwoMoneyAmounts" classname="com.revolut.money.domain.money.MoneyTest" time="0.0"/>
+  <testcase name="shouldSubtractWhenResultAmountIsPositive" classname="com.revolut.money.domain.money.MoneyTest" time="0.0"/>
+  <testcase name="moneyWithNegativeAmountCanNotBeCreated" classname="com.revolut.money.domain.money.MoneyTest" time="0.0"/>
+  <testcase name="shouldRaiseExceptionWhenResultAmountOfSubtractionIsNegative" classname="com.revolut.money.domain.money.MoneyTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

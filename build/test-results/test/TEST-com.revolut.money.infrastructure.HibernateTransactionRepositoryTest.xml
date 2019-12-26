@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.revolut.money.infrastructure.HibernateTransactionRepositoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-26T07:52:18" hostname="DESKTOP-PNAEB3S" time="0.004">
+  <properties/>
+  <testcase name="shouldConfirmNoGivenTransactionExitsInRepository" classname="com.revolut.money.infrastructure.HibernateTransactionRepositoryTest" time="0.001"/>
+  <testcase name="shouldConfirmTransactionIsPresentInRepository" classname="com.revolut.money.infrastructure.HibernateTransactionRepositoryTest" time="0.003"/>
+  <system-out><![CDATA[08:52:18.318 [Test worker] DEBUG org.hibernate.SQL - select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+Hibernate: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.319 [Test worker] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : com.revolut.money.domain.transaction.Transaction#269fb3e4-43a2-4995-abdf-fa7c10b630bb
+08:52:18.319 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.319 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+08:52:18.319 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - begin
+08:52:18.319 [Test worker] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 9ffb4431-baa8-463e-b705-10af9f51719e, using strategy: org.hibernate.id.Assigned
+08:52:18.319 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - committing
+08:52:18.320 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+08:52:18.320 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+08:52:18.320 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+08:52:18.320 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+08:52:18.320 [Test worker] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+08:52:18.320 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.transaction.Transaction{id=9ffb4431-baa8-463e-b705-10af9f51719e, completed=false}
+08:52:18.320 [Test worker] DEBUG org.hibernate.SQL - insert into PUBLIC.Transaction (completed, id) values (?, ?)
+Hibernate: insert into PUBLIC.Transaction (completed, id) values (?, ?)
+08:52:18.321 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.321 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.321 [Test worker] DEBUG org.hibernate.SQL - select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+Hibernate: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.322 [Test worker] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+08:52:18.322 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving attributes for [com.revolut.money.domain.transaction.Transaction#9ffb4431-baa8-463e-b705-10af9f51719e]
+08:52:18.322 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Processing attribute `completed` : value = false
+08:52:18.322 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Attribute (`completed`)  - enhanced for lazy-loading? - false
+08:52:18.322 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [com.revolut.money.domain.transaction.Transaction#9ffb4431-baa8-463e-b705-10af9f51719e]
+08:52:18.322 [Test worker] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : com.revolut.money.domain.transaction.Transaction#9ffb4431-baa8-463e-b705-10af9f51719e
+08:52:18.322 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.revolut.money.infrastructure.HibernateTransactionRepositoryTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.revolut.money.infrastructure.HibernateTransactionRepositoryTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.revolut.money.infrastructure.html">com.revolut.money.infrastructure</a> &gt; HibernateTransactionRepositoryTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.004s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">shouldConfirmNoGivenTransactionExitsInRepository</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldConfirmTransactionIsPresentInRepository</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>08:52:18.318 [Test worker] DEBUG org.hibernate.SQL - select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+Hibernate: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.319 [Test worker] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : com.revolut.money.domain.transaction.Transaction#269fb3e4-43a2-4995-abdf-fa7c10b630bb
+08:52:18.319 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.319 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+08:52:18.319 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - begin
+08:52:18.319 [Test worker] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 9ffb4431-baa8-463e-b705-10af9f51719e, using strategy: org.hibernate.id.Assigned
+08:52:18.319 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - committing
+08:52:18.320 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+08:52:18.320 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+08:52:18.320 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+08:52:18.320 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+08:52:18.320 [Test worker] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+08:52:18.320 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.transaction.Transaction{id=9ffb4431-baa8-463e-b705-10af9f51719e, completed=false}
+08:52:18.320 [Test worker] DEBUG org.hibernate.SQL - insert into PUBLIC.Transaction (completed, id) values (?, ?)
+Hibernate: insert into PUBLIC.Transaction (completed, id) values (?, ?)
+08:52:18.321 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.321 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.321 [Test worker] DEBUG org.hibernate.SQL - select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+Hibernate: select transactio0_.id as id1_1_0_, transactio0_.completed as complete2_1_0_ from PUBLIC.Transaction transactio0_ where transactio0_.id=?
+08:52:18.322 [Test worker] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+08:52:18.322 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving attributes for [com.revolut.money.domain.transaction.Transaction#9ffb4431-baa8-463e-b705-10af9f51719e]
+08:52:18.322 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Processing attribute `completed` : value = false
+08:52:18.322 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Attribute (`completed`)  - enhanced for lazy-loading? - false
+08:52:18.322 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [com.revolut.money.domain.transaction.Transaction#9ffb4431-baa8-463e-b705-10af9f51719e]
+08:52:18.322 [Test worker] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : com.revolut.money.domain.transaction.Transaction#9ffb4431-baa8-463e-b705-10af9f51719e
+08:52:18.322 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 5.6.1</a> at Dec 26, 2019 8:52:21 AM</p>
+</div>
+</div>
+</body>
+</html>

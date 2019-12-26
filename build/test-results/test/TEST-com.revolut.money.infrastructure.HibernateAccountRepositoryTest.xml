@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.revolut.money.infrastructure.HibernateAccountRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-26T07:52:18" hostname="DESKTOP-PNAEB3S" time="0.01">
+  <properties/>
+  <testcase name="shouldObtainAccountWhenItExistsInRepository" classname="com.revolut.money.infrastructure.HibernateAccountRepositoryTest" time="0.01"/>
+  <system-out><![CDATA[08:52:18.314 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+08:52:18.314 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - begin
+08:52:18.315 [Test worker] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 1742947744536262326, using strategy: org.hibernate.id.Assigned
+08:52:18.315 [Test worker] DEBUG o.h.e.t.internal.TransactionImpl - committing
+08:52:18.315 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+08:52:18.315 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+08:52:18.315 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+08:52:18.315 [Test worker] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+08:52:18.315 [Test worker] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+08:52:18.315 [Test worker] DEBUG o.h.internal.util.EntityPrinter - com.revolut.money.domain.account.Account{balance=component[amount]{amount=10.00}, id=1742947744536262326}
+08:52:18.315 [Test worker] DEBUG org.hibernate.SQL - insert into PUBLIC.Account (amount, id) values (?, ?)
+Hibernate: insert into PUBLIC.Account (amount, id) values (?, ?)
+08:52:18.316 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.316 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+08:52:18.316 [Test worker] DEBUG org.hibernate.SQL - select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+Hibernate: select account0_.id as id1_0_0_, account0_.amount as amount2_0_0_ from PUBLIC.Account account0_ where account0_.id=?
+08:52:18.316 [Test worker] DEBUG o.h.l.p.e.p.i.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+08:52:18.317 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Resolving attributes for [com.revolut.money.domain.account.Account#1742947744536262326]
+08:52:18.317 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Processing attribute `balance` : value = [Ljava.lang.Object;@62e98ca2
+08:52:18.317 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Attribute (`balance`)  - enhanced for lazy-loading? - false
+08:52:18.317 [Test worker] DEBUG o.h.engine.internal.TwoPhaseLoad - Done materializing entity [com.revolut.money.domain.account.Account#1742947744536262326]
+08:52:18.317 [Test worker] DEBUG o.h.l.e.p.AbstractLoadPlanBasedEntityLoader - Done entity load : com.revolut.money.domain.account.Account#1742947744536262326
+08:52:18.317 [Test worker] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
